@@ -5,7 +5,7 @@ import React from "react";
 import styles from "./ContactForm.module.css";
 import { useDispatch } from "react-redux";
 import { nanoid } from "nanoid";
-import { addContact } from "../redux/contactsSlice"; 
+import { addContact } from "../redux/contactsOps";
 
 const ContactForm = ( ) => {
   const dispatch = useDispatch();
@@ -27,7 +27,7 @@ const ContactForm = ( ) => {
     number: "",
   };
   const handleSubmit = (values, actions) => {
-    dispatch(addContact({id: nanoid(), ...values}));
+    dispatch(addContact(values));
     actions.resetForm();
   };
   return (
